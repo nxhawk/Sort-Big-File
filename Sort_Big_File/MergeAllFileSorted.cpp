@@ -14,7 +14,7 @@ private:
     int bufferSize;
     vector<Book> buffer;
 
-    /*  Loads next batch of lines from Disk to Memory */
+    /*  T Loads next batch of lines from Disk to Memory */
     void loadDataFromDisk()
     {
         int i = 0;
