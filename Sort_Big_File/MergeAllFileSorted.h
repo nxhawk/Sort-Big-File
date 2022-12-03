@@ -3,5 +3,5 @@
 #include<queue>
 
 
-//run main 
+//run main func
 void run_main(int lenghtFile);
