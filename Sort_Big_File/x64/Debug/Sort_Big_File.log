@@ -1,9 +1,0 @@
-﻿  MergeAllFileSorted.cpp
-D:\archive\Sort_Big_File\MergeAllFileSorted.cpp(102,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  SortSmallFile.cpp
-D:\archive\Sort_Big_File\SortSmallFile.cpp(17,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  SplitBigFile.cpp
-D:\archive\Sort_Big_File\SplitBigFile.cpp(67,30): warning C4244: '+=': conversion from 'LL' to 'int', possible loss of data
-  main.cpp
-  Generating Code...
-  Sort_Big_File.vcxproj -> D:\archive\Sort_Big_File\x64\Debug\Sort_Big_File.exe
