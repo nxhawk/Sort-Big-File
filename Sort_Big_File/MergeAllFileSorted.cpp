@@ -21,7 +21,6 @@ private:
         string line;
         for (; i < totalBufferCapacity && getline(fileHandle, line); i++)
         {
-            //{}[]
             buffer[i].id = line.substr(0, 10);
             buffer[i].context = line;
         }
