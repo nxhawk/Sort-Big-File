@@ -2,6 +2,7 @@
 
 #include"Library.h"
 
+//struct Book
 struct Book {
 	string id, context;
 };

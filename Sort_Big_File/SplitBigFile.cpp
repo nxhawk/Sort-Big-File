@@ -12,6 +12,7 @@ LL GetFileLength(const string& filepath)
         len = in.tellg();
         in.close();
     }else {
+        //open file error
         cout << "Failed open Big File Data to get length\n";
         exit(0);
     }
@@ -27,6 +28,7 @@ int  split(const string& filepath, LL blockSize)
     LL ori_size = GetFileLength(filepath);
     blockSize *= 1024; //KB -> B
     
+    //get length file error
     if (ori_size == -1)
     {
         cout << "Get file length failed." << endl;
@@ -84,4 +86,4 @@ int  split(const string& filepath, LL blockSize)
     cout << "Split " << i << " files, original file size: " << ori_size << "Bytes." << endl;
     return i;
 }
-
+//end

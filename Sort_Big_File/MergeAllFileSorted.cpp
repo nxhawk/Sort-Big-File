@@ -14,14 +14,13 @@ private:
     int bufferSize;
     vector<Book> buffer;
 
-    /*  Loads next batch of lines from Disk to Memory */
+    /*  T Loads next batch of lines from Disk to Memory */
     void loadDataFromDisk()
     {
         int i = 0;
         string line;
         for (; i < totalBufferCapacity && getline(fileHandle, line); i++)
         {
-            //{}[]
             buffer[i].id = line.substr(0, 10);
             buffer[i].context = line;
         }
