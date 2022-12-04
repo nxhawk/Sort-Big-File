@@ -1,6 +1,6 @@
 # Đồ án thực hành cấu trúc dữ liệu và giải thuật
 
-## Sắp xếp dữ liệu lớn
+## Đề bài: Sắp xếp dữ liệu lớn
 
 ### *Chào thầy và các bạn,* 
 
