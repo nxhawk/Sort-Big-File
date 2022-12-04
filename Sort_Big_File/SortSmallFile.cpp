@@ -22,6 +22,7 @@ void parseData(string line)
 	n++;
 }
 
+//function get length file 
 LL GetFileLength(string filepath)
 {
 	LL len = -1;
@@ -36,39 +37,10 @@ LL GetFileLength(string filepath)
 	return len;
 }
 
-/*
-void readData(int index)
-{
-
-
-	char buff[1024];
-	memset(buff, 0, 1024);
-	LL read_count = 0;
-	LL cur_count = 0;
-	string line = "", tmp = "";
-	int k = 0;
-	while (read_count < ori_size)
-	{
-		memset(buff, 0, 1024);
-		f.read(buff, 1024);
-		cur_count = f.gcount();
-		read_count += cur_count;
-		for (int i = 0; i < 1024; i++)
-			if (!buff[i]) break;
-			else if (buff[i] == '\n') {
-				n++;
-				tmp = line;
-				line = "";
-			}
-			else line += buff[i];
-
-	}
-	f.close();
-}
-*/
-//read Data of file
+//read Data of file with char array
 void readData(int lengthFile) {
 	length_file = lengthFile;
+	
 	for (int i = 0; i < length_file; i++)
 	{
 		n = 0;
@@ -111,33 +83,6 @@ void readData(int lengthFile) {
 		writeData();//write data after sort
 	}
 }
-/*
-void readData(int lengthFile) {
-
-	length_file = lengthFile;
-	for (int i = 0; i < length_file; i++)
-	{
-		n = 0;
-		file = i;
-		string dirfile = to_string(i) + ".txt";
-		ifstream f;
-		f.open(dirfile, ios_base::in | ios_base::binary);
-		if (!f.is_open()) {
-			cout << "Failed open " << dirfile << " to read data\n";
-			return;
-		}
-		cout << "Read data from " << dirfile << endl;
-		string line;
-		if (i == 0) getline(f, line);
-		while (f) {
-			getline(f, line);
-			parseData(line);
-		}
-		cout << "Sort data from file\n";
-		qSort(0, n - 1);//sort data
-		writeData();//write data after sort
-	}
-}*/
 
 //Quick sort
 void qSort(int left, int right)
@@ -165,7 +110,7 @@ void writeData()
 	dirfile = to_string(file) + "_sorted.csv";
 	ofstream f;
 	f.open(dirfile, ios_base::out | ios_base::binary);
-	if (!f.is_open())
+	if (!f.is_open())//error open file
 	{
 		cout << "open " << dirfile << " failed to write data." << endl;
 		return;
@@ -174,5 +119,7 @@ void writeData()
 	for (int i = 0; i < n; i++)
 		f << book[i].context << endl;
 	f.close();
+	
+	//successfully
 	cout << "Done!!!\n\n";
 }
