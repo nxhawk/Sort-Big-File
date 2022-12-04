@@ -1,9 +1,9 @@
-//{}[]
 #include"SplitBigFile.h"
 #include"SortSmallFile.h"
 #include"MergeAllFileSorted.h"
 #include<time.h>
 
+//clear screen
 void cls()
 {
 	system("cls");
