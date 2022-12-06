@@ -16,9 +16,9 @@ Báo cáo chi tiết của nhóm: [link sau](https://github.com/nxhawk/Sort-Big-
 
 | MSSV | Họ và tên |
 | ------ | ------ |
-| 21120439 | Bùi Minh Duy |
-| 21120447 | Nguyễn Nhật Hào |
-| 21120453 | Tô Phương Hiếu |
+| 21120439 | [Bùi Minh Duy](https://github.com/duybui03) |
+| 21120447 | [Nguyễn Nhật Hào](https://github.com/nxhawk) |
+| 21120453 | [Tô Phương Hiếu](https://github.com/phuonghieuto) |
 
 Để có thể sắp xếp một file lớn, ta thực hiện lần lượt các bước: 
 + Chia file lớn thành nhiều file nhỏ để dễ dàng thao tác.
