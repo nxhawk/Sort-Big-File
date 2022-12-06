@@ -10,7 +10,7 @@ Trong bài viết này, chúng em xin trình bày về cách sắp xếp bộ d�
 
 Bộ dữ liệu có nguồn [tại](https://www.kaggle.com/datasets/mohamedbakhet/amazon-books-reviews)
 
-Báo cáo chi tiết của nhóm:
+Báo cáo chi tiết của nhóm: [link sau](https://github.com/nxhawk/Sort-Big-File/blob/master/report.pdf)
 
 
 Để có thể sắp xếp một file lớn, ta thực hiện lần lượt các bước: 
