@@ -70,4 +70,10 @@ Thuật toán sử dụng vòng lặp for đọc n file dữ liệu và đưa v�
 Thuật toán sử dụng vòng lặp while để đưa dữ liệu vào File lớn đã sắp xếp. Về cơ bản, vòng lặp sẽ thực hiện số lần tương đương với số dòng của File lớn và thêm chi phí của việc chèn m dòng dữ liệu vào queue có chi phí O(log(m)). Nên vòng lặp có chi phí O(N + N/m*log(m)).
 Vậy chi phí tổng cộng xấp xỉ O(N) với N là số dòng của File lớn.
 
+## 4. Tổng kết
 
+Ý tưởng cơ bản là như vậy, bạn đọc hãy nghiên cứu code nhé <(^-^)>.
+
+Bài viết còn rất lủng củng, mong mọi người thứ lỗi.
+
+![image](https://i.pinimg.com/200x150/5a/73/fc/5a73fc423572b3067edcd1357e10562e.jpg)
