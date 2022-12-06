@@ -32,6 +32,7 @@ Báo cáo chi tiết của nhóm: [link sau](https://github.com/nxhawk/Sort-Big-
 **1.2 Đánh giá độ phức tạp**
 
 Với k là độ lớn của file nhỏ được xác định trước, L là độ lớn của file lớn, buff là độ lớn của bộ nhớ đệm.
+
 Thuật toán cần tạo ra n = L/k file nhỏ, sử dụng vòng lặp for duyệt n file nhỏ, đồng thời phải sử dụng vòng lặp while duyệt m = k/buff để lưu dữ liệu từ bộ nhớ đệm vào file nhỏ. Tức là cần O(n.m)
 
 ## **2.	Sắp xếp file nhỏ**
@@ -47,7 +48,11 @@ Thuật toán cần tạo ra n = L/k file nhỏ, sử dụng vòng lặp for duy
 **2.2 Đánh giá độ phức tạp**
 
 Với k là độ lớn của file nhỏ, L là độ lớn của file lớn, buff là độ lớn của bộ nhớ đệm, a là số phần tử của mảng struct tương đương với số dòng của file nhỏ).
-Thuật toán sử dụng vòng lặp for duyệt n = L/k file nhỏ. Sử dụng vòng lặp while duyệt m = k/buff để phân tích dữ liệu từ file nhỏ vào bộ nhớ đệm rồi vào mảng struct. Sau đó Sử dụng thuật toán Quick Sort để sắp xếp mảng dữ liệu với độ phức tạp O(a*log(a)) 
+
+Thuật toán sử dụng vòng lặp for duyệt n = L/k file nhỏ. Sử dụng vòng lặp while duyệt m = k/buff để phân tích dữ liệu từ file nhỏ vào bộ nhớ đệm rồi vào mảng struct. 
+
+Sau đó Sử dụng thuật toán Quick Sort để sắp xếp mảng dữ liệu với độ phức tạp O(a*log(a)) 
+
 Vậy độ phức tạp của thuật toán là O(n*(m+a*logn))
 
 ## **3.	Hợp nhất các file nhỏ đã sắp xếp thành file lớn**
@@ -65,15 +70,22 @@ Vậy độ phức tạp của thuật toán là O(n*(m+a*logn))
 
 **3.2 Đánh giá độ phức tạp**
 
-Với m = CHUNK_SIZE là số dòng tối đã được đọc trong 1 file nhỏ, n là số file nhỏ n = L/k (k là độ lớn của file nhỏ, L là độ lớn của file lớn)
+Với m = CHUNK_SIZE là số dòng tối đã được đọc trong 1 file nhỏ, n là số file nhỏ n = L/k (k là độ lớn của file nhỏ, L là độ lớn của file lớn).
+
 Thuật toán sử dụng vòng lặp for đọc n file dữ liệu và đưa vào queue, thao tác chèn m dòng dữ liệu vào queue có chi phí O(log(m)) nên vòng lặp có chi phí O(nlog(m)).
+
 Thuật toán sử dụng vòng lặp while để đưa dữ liệu vào File lớn đã sắp xếp. Về cơ bản, vòng lặp sẽ thực hiện số lần tương đương với số dòng của File lớn và thêm chi phí của việc chèn m dòng dữ liệu vào queue có chi phí O(log(m)). Nên vòng lặp có chi phí O(N + N/m*log(m)).
+
 Vậy chi phí tổng cộng xấp xỉ O(N) với N là số dòng của File lớn.
 
 ## 4. Tổng kết
 
 Ý tưởng cơ bản là như vậy, bạn đọc hãy nghiên cứu [code](https://github.com/nxhawk/Sort-Big-File/tree/master/Sort_Big_File) nhé <(^-^)>.
 
-Bài viết còn rất lủng củng, mong mọi người thứ lỗi.
+Qua đồ án này đã giúp chúng em rèn luyện khả năng lập trình. 
+
+Cung cấp các kiến thức mới và cách vận dụng các kiến thức đã học vào bài toán thực tế. 
+
+Đồng thời cũng rèn luyện kĩ năng làm việc nhóm thông qua công cụ quản lý source code github và git: 
 
 ![image](https://i.pinimg.com/200x150/5a/73/fc/5a73fc423572b3067edcd1357e10562e.jpg)
