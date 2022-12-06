@@ -12,6 +12,13 @@ Bộ dữ liệu có nguồn [tại](https://www.kaggle.com/datasets/mohamedbakh
 
 Báo cáo chi tiết của nhóm: [link sau](https://github.com/nxhawk/Sort-Big-File/blob/master/report.pdf)
 
+## Thành viên thực hiện đồ án:
+
+| MSSV | Họ và tên |
+| ------ | ------ |
+| 21120439 | Bùi Minh Duy |
+| 21120447 | Nguyễn Nhật Hào |
+| 21120453 | Tô Phương Hiếu |
 
 Để có thể sắp xếp một file lớn, ta thực hiện lần lượt các bước: 
 + Chia file lớn thành nhiều file nhỏ để dễ dàng thao tác.
@@ -23,11 +30,12 @@ Báo cáo chi tiết của nhóm: [link sau](https://github.com/nxhawk/Sort-Big-
 **1.1 Ý tưởng thuật toán**
 
 + Xác định trước kích thước của 1 file nhỏ muốn chia.
-+ Dựa vào kích thước đã xác định (~20,000KB), chia thành 140 file nhỏ
-+ Đọc dữ liệu của File lớn vào một bộ nhớ đệm (fit trên RAM).
-+ Lưu dữ liệu trong bộ nhớ đệm vào file nhỏ, lặp lại cho đến khi file nhỏ đạt đến kích thước muốn chia.
-+ Khi file nhỏ đầy, kiểm tra ký tự cuối cùng của file nhỏ có phải ký tự xuống dòng không, nếu không thì tiếp tục lưu dữ liệu từ file lớn cho đến khi gặp ký tự xuống dòng để có dữ liệu hoàn chỉnh.
++ Dựa vào kích thước đã xác định K ~ 20,000KB, chia thành 140 file nhỏ.
++ Đọc dữ liệu của File lớn vào một bộ nhớ đệm buff (fit trên RAM).
++ Lưu dữ liệu trong bộ nhớ đệm vào file nhỏ với tên X.csv (X là số thứ tự file), lặp lại cho đến khi file nhỏ đạt đến kích thước muốn chia.
++ Khi file nhỏ đạt kích thước mong muốn, kiểm tra ký tự cuối cùng của file nhỏ có phải ký tự xuống dòng không, nếu không thì tiếp tục lưu dữ liệu từ file lớn cho đến khi gặp ký tự xuống dòng để có dữ liệu hoàn chỉnh.
 + Tạo file nhỏ mới lưu với tên X.csv (X là số thứ tự file) và lặp lại quá trình cho đến khi đọc hết dữ liệu từ file lớn.
+
 
 **1.2 Đánh giá độ phức tạp**
 
@@ -39,11 +47,12 @@ Thuật toán cần tạo ra n = L/k file nhỏ, sử dụng vòng lặp for duy
 
 **2.1 Ý tưởng thuật toán**
 
-+ Lần lượt đọc dữ liệu của từng file nhỏ
-+ Lần lượt chuyển dữ liệu của file nhỏ vào một bộ nhớ đệm buff có kích thước định trước.
++ Lần lượt xử lí từng file nhỏ. Đọc dữ liệu của từng file nhỏ.
++ Lần lượt chuyển dữ liệu của file nhỏ vào một bộ nhớ đệm buff có kích thước định trước (fit trên RAM).
 + Phân tích dữ liệu từng dòng thành dạng struct với 2 trường id và context để dễ sắp xếp.
-+ Sắp xếp mảng struct theo id tăng dần với dữ liệu đã được phân tích bằng thuật toán Quick Sort.
++ Sắp xếp mảng struct theo id tăng dần với dữ liệu đã được phân tích trước đó bằng thuật toán Quick Sort.
 + Lưu mảng struct đã sắp xếp vào file với đánh dấu đã sắp xếp (X_sorted.csv, với X là số thứ tự của file nhỏ).
++ Lặp lại toàn bộ quá trình cho đến khi đã sắp xếp tất cả file nhỏ.
 
 **2.2 Đánh giá độ phức tạp**
 
@@ -60,13 +69,13 @@ Vậy độ phức tạp của thuật toán là O(n*(m+a*logn))
 **3.1 Ý tưởng thuật toán**
 
 + Đọc một số lượng dòng nhất định trong tất cả các file nhỏ (giá trị CHUNK_SIZE = 100) để tránh không fit trên Ram.
-+ Đưa dữ liệu của từng file nhỏ vào một con trỏ tương ứng, quản lý các con trỏ bằng mảng vector
-+ Đọc dữ liệu từng dòng (số dòng là CHUNK_SIZE) từ con trỏ trong mảng vector, sử dụng kĩ thuật hàng đợi (queue) với dạng priority queue – hàng đợi ưu tiên để sắp xếp các dữ liệu từ các file nhỏ thuật toán sắp xếp được thư viện hỗ trợ là min-heap, mỗi lần chỉ đưa dữ liệu đầu tiên hiện hành của từng file vào queue.
-+ Lấy phần tử đứng đầu trong hàng đợi và đưa vào File lớn được đánh dấu đã sắp xếp.
-+ Kiểm tra nếu trong file nhỏ của phần tử vừa ghi vào File lớn vẫn còn phần kế tiếp thì tiếp tục đưa dữ liệu đấy vào queue.
++ Đưa dữ liệu của từng file nhỏ vào một con trỏ tương ứng, quản lý các con trỏ bằng mảng vector.
++ Đọc dữ liệu từng dòng (số dòng là CHUNK_SIZE) từ con trỏ trong mảng vector, sử dụng kĩ thuật hàng đợi (queue) với dạng priority queue – hàng đợi ưu tiên để sắp xếp các dữ liệu từ các file nhỏ, thuật toán sắp xếp được thư viện hỗ trợ là min-heap, mỗi lần chỉ đưa dữ liệu đầu tiên hiện hành của từng file vào queue.
++ Lấy phần tử đứng đầu trong hàng đợi và đưa vào File lớn (File này sẽ là file kết quả của bài toán) .
++ Kiểm tra nếu trong file nhỏ của phần tử vừa ghi vào File lớn vẫn còn phần kế tiếp thì tiếp tục đưa dữ liệu đó vào queue.
 + Tại một file nhỏ khi đã ghi CHUNK_SIZE dữ liệu vào file lớn, ta tiếp tục đọc CHUNK_SIZE dữ liệu tiếp theo vào con trỏ, việc này dừng lại khi đã lấy hết dữ liệu của file nhỏ.
 + Lặp lại toàn quá trình cho đến khi queue rỗng.
-+ Hoàn thành sắp xếp File lớn merge dữ liệu và lưu dưới tên “sorted_big_file.csv”.
++ Hoàn thành sắp xếp File lớn merge dữ liệu và lưu dưới tên  “sorted_big_file.csv”
 
 **3.2 Đánh giá độ phức tạp**
 
