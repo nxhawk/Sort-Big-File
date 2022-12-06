@@ -72,7 +72,7 @@ Vậy chi phí tổng cộng xấp xỉ O(N) với N là số dòng của File l
 
 ## 4. Tổng kết
 
-Ý tưởng cơ bản là như vậy, bạn đọc hãy nghiên cứu code nhé <(^-^)>.
+Ý tưởng cơ bản là như vậy, bạn đọc hãy nghiên cứu [code](https://github.com/nxhawk/Sort-Big-File/tree/master/Sort_Big_File) nhé <(^-^)>.
 
 Bài viết còn rất lủng củng, mong mọi người thứ lỗi.
 
